@@ -34,6 +34,10 @@ int main() {
 
   s2c = open("WKP", O_WRONLY | O_NONBLOCK);
   c2s = open("WKP", O_RDONLY | O_NONBLOCK);
+  s2c = open("WKP", O_WRONLY | O_NONBLOCK);
+
+  printf("c2s: %d\n", c2s);
+  printf("s2c: %d\n", s2c);
 
   //listen socket
   listen_socket = server_setup();
@@ -156,7 +160,7 @@ void subserver(int client_socket, int pipe1[], int pipe2) {
       //blocks here? 
       
       printf("[subserver %d] writing to pipe\n", getpid());
-      write(pipe2, buffer, sizeof(buffer));
+      write(pipe2, buffer, sizeof(buffer)); //problem?
       
     }//end client select
   }

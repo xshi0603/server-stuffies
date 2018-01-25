@@ -60,7 +60,7 @@ int main() {
     if (FD_ISSET(listen_socket, &read_fds)) {
      
       client_socket = server_connect(listen_socket);
-      printf("client socket:%d\n", client_socket);     
+      //printf("client socket:%d\n", client_socket);     
       //unnamed pipes
       int fd1[2];
       pipe(fd1);
